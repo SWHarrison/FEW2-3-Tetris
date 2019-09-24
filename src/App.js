@@ -1,8 +1,8 @@
 import React from 'react'
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
-import './App.css';
 
+import './App.css';
 import reducers from './reducers'
 
 import GridBoard from './components/grid-board'
@@ -25,7 +25,7 @@ function App() {
         <ScoreBoard />
         <Controls />
         <MessagePopup />
-      </div>  
+      </div>
     </Provider>
   );
 }
