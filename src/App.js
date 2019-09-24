@@ -2,13 +2,16 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+import GridSquare from './components/grid-square'
+
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         <h1 className="App-title">Tetris Redux</h1>
-        </header>
-        </div>  
+      </header>
+      <GridSquare color="1" />
+    </div>
   );
 }
 
