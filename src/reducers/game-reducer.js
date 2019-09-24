@@ -66,7 +66,7 @@ const gameReducer = (state = defaultState(), action) => {
       // Score increases decrease interval
       newState.score = score + checkRows(newGrid)
       return newState
-      
+
     case RESUME:
 
       return { ...state, isRunning: true }
@@ -81,7 +81,7 @@ const gameReducer = (state = defaultState(), action) => {
 
     case RESTART:
 
-      return state
+      return defaultState()
 
     default:
       return state
