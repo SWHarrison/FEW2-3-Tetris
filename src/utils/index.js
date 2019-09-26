@@ -169,7 +169,44 @@ export const nextRotation = (shape, rotation) => {
 export const canMoveTo = (shape, grid, x, y, rotation) => {
   const currentShape = shapes[shape][rotation]
   // Loop through all rows and cols of the **shape**
-  console.log(currentShape)
+  for (let i = 0; i < 4; i ++){
+    console.log(currentShape[i])
+  }
+  console.log("x:" + x + " y: " + y)
+  let max_x = 0 // right most x
+  let max_y = 0 // highest y
+  let min_x = 3 // left most x
+  let min_y = 3 // lowest y
+  for ( let r = 0; r < 4 ; r++){
+    for ( let c = 0; c < 4; c++){
+      if(currentShape[r][c] == 1){
+        if(max_x < c){
+          max_x = c
+        }
+        if( min_x > c){
+          min_x = c
+        }
+      }
+    }
+  }
+  for ( let c = 0; c < 4 ; c++){
+    for ( let r = 0; r < 4; r++){
+      if(currentShape[r][c] == 1 && max_y < r){
+        max_y = r
+      }
+      if(currentShape[r][c] == 1 && max_y > r){
+        min_y = r
+      }
+    }
+  }
+  console.log(("max_x:" + (x + max_x) + " max_y: " + (y + max_y)))
+  console.log(("min_x:" + (x + min_x) + " min_y: " + (y + min_y)))
+
+  if(min_x + x < 0 || max_x + x > 9){
+    console.log("shape out of bounds")
+    return false
+  }
+
   for (let row = 0; row < currentShape.length; row++) {
     for (let col = 0; col < currentShape[row].length; col++) {
       // Look for a 1 here
